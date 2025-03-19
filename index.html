@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html class="light-style layout-menu-fixed layout-compact" dir="rtl" data-theme="theme-default"
+  data-assets-path="https://tadrisdz.com/assets/" data-template="horizontal-menu-template-no-customizer-starter"
+  data-style="light" lang="ar">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <title>موقع TadrisDZ - منصتك التعليمية</title>
+    <meta name="description" content="TadrisDZ هو الموقع الأول في الجزائر الذي يقدم محتوى تعليمي شامل لجميع المستويات الدراسية وفق المنهاج الجزائري. نوفر لك ملخصات مميزة، تمارين، ونماذج الفروض والاختبارات لجميع المواد من أجل التحضير الجيد والنجاح في مسيرتك الدراسية.">
+    <link rel="icon" type="image/x-icon" href="https://tadrisdz.com/assets/img/icons/tadrisdz_logo.ico">
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://tadrisdz.com/assets/vendor/css/rtl/core.css">
+    <link rel="stylesheet" href="https://tadrisdz.com/assets/vendor/css/rtl/theme-modern.css">
+    <style>
+        body {
+            font-family: 'CoconNextArabic-Regular', sans-serif !important;
+            font-size: large;
+            background: linear-gradient(135deg, #eef2f7, #d9e2ec);
+            color: #212529;
+            perspective: 1000px;
+            text-align: center;
+        }
+        .navbar {
+            background: linear-gradient(135deg, #0077b6, #00a896);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .header-buttons {
+            display: flex;
+            justify-content: right;
+            gap: 10px;
+            margin-top: 0px;
+        }
+        .header-buttons input {
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            width: 250px;
+        }
+        .header-buttons .btn {
+            background: #0077b6;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+        .header-buttons .btn:hover {
+            background: #005f99;
+        }
+        .social-icons img {
+            width: 15px;
+            margin-left: 5px;
+        }
+        .welcome-box {
+            background: #50b848;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 98%; /* عرض كامل الصفحة */
+            margin-top: 5px; /* مسافة صغيرة بينه وبين إطار البحث */
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+        }
+        .moving-text {
+            font-size: 18px;
+            font-weight: bold;
+            color: rgb(246, 241, 241);
+            animation: blinkText 2s infinite alternate;
+        }
+        @keyframes blinkText {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+        .menu-inner {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .phase-button {
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            text-transform: uppercase;
+            border: none;
+        }
+        .phase-button.primary {
+            background: linear-gradient(135deg, #4a90e2, #005f99);
+        }
+        .phase-button.middle {
+            background: linear-gradient(135deg, #50b848, #2e7d32);
+        }
+        .phase-button.secondary {
+            background: linear-gradient(135deg, #f5a623, #e65100);
+        }
+        .phase-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
+        }
+        .submenu {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            background: transparent; /* إطار شفاف */
+            padding: 15px;
+            margin-top: 10px;
+            width: 100%;
+        }
+        .submenu a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px 15px;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: background 0.3s;
+            text-decoration: none;
+            width: 80%;
+            text-align: center;
+            color: #0077b6;
+            background: #f1f1f1;
+        }
+        .submenu a:hover {
+            background-color: #e0f2f1;
+        }
+        .submenu a::before,
+        .submenu a::after {
+            content: ">>";
+            font-size: 16px;
+            color: #0077b6;
+        }
+        .submenu a::before {
+            content: "<<";
+            margin-right: 5px;
+        }
+        .submenu a::after {
+            content: ">>";
+            margin-left: 5px;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const phaseButtons = document.querySelectorAll('.phase-button');
+
+            phaseButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    // إخفاء جميع إطارات المواد الأخرى
+                    document.querySelectorAll('.submenu').forEach(submenu => {
+                        submenu.style.display = 'none';
+                    });
+                    // إظهار إطار المواد الخاص بالطور الذي تم النقر عليه
+                    const submenu = button.nextElementSibling;
+                    if (submenu && submenu.classList.contains('submenu')) {
+                        submenu.style.display = 'flex';
+                    }
+                });
+            });
+
+            document.querySelectorAll('.submenu').forEach(submenu => {
+                let items = submenu.querySelectorAll('a');
+                if (items.length > 4) {
+                    let moreButton = document.createElement('a');
+                    moreButton.className = 'more-button';
+                    moreButton.innerText = 'المزيد';
+                    moreButton.style.background = '#0077b6';
+                    moreButton.style.color = 'white';
+                    moreButton.style.padding = '10px 15px';
+                    moreButton.style.borderRadius = '8px';
+                    moreButton.style.cursor = 'pointer';
+                    moreButton.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        items.forEach(item => item.style.display = 'flex');
+                        moreButton.style.display = 'none';
+                    });
+                    items.forEach((item, index) => {
+                        if (index >= 4) item.style.display = 'none';
+                    });
+                    submenu.appendChild(moreButton);
+                }
+            });
+        });
+    </script>
+  </head>
+  <body>
+    <nav class="layout-navbar navbar navbar-expand-xl align-items-center bg-navbar-theme">
+      <div class="container-xxl" style="background-color: white;"> <a href="https://tadrisdz.com/"
+          class="app-brand-link gap-2"> <img src="file:///C:/Users/alitriou/Downloads/3586376-book-education-learning-teacher_107951.ico"
+            alt="TadrisDZ Logo" style="color: #3333ff; width: 21px; height: 18px;">
+          <span class="app-brand-text demo menu-text fw-semibold ms-1">TadrisDZ</span>
+        </a> </div>
+      <div class="header-buttons"> <input placeholder="ابحث عن مادة..." type="text">
+        <a href="#" class="btn">تسجيل الدخول</a> <a href="#" class="btn" style="background: #00a896;">إنشاء
+          حساب</a>
+        <div class="social-icons"> <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png"
+              alt="Twitter"></a> <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png"
+              alt="Facebook"></a> <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733590.png"
+              alt="Instagram"></a> </div>
+      </div>
+      <div class="welcome-box">
+        <h1>مرحبًا بك في TadrisDZ</h1>
+        <p class="moving-text">اكتشف مجموعة واسعة من التمارين، الملخصات،
+          والاختبارات لجميع المستويات الدراسية.</p>
+      </div>
+    </nav>
+    <div class="menu-inner"> <button class="phase-button primary">التعليم
+        الابتدائي</button>
+      <div class="submenu primary"> <a href="pages/primer.html">اللغة العربية</a>
+        <a href="#">الرياضيات</a> <a href="#">التربية الإسلامية</a> <a href="#">اللغة
+          الفرنسية</a> <a href="#">التربية العلمية</a> <a href="#">التربية
+          المدنية</a> </div>
+      <button class="phase-button middle">التعليم المتوسط</button>
+      <div class="submenu middle"> <a href="#">الرياضيات</a> <a href="#">العلوم
+          الطبيعية</a> <a href="moyen.html">اللغة العربية</a> <a href="#">اللغة
+          الفرنسية</a> <a href="#">اللغة الإنجليزية</a> <a href="#">التاريخ
+          والجغرافيا</a> <a href="#">التربية الإسلامية</a> <a href="#">التربية
+          المدنية</a> <a href="#">التكنولوجيا</a> <a href="#">الإعلام الآلي</a>
+      </div>
+      <button class="phase-button secondary">التعليم الثانوي</button>
+      <div class="submenu secondary"> <a href="#">الرياضيات</a> <a href="#">الفيزياء</a>
+        <a href="#">العلوم الطبيعية</a> <a href="#">الفلسفة</a> <a href="#">التاريخ
+          والجغرافيا</a> <a href="seconder.html">اللغة العربية</a> <a href="#">اللغة
+          الفرنسية</a> <a href="#">اللغة الإنجليزية</a> <a href="#">الهندسة
+          الكهربائية</a> <a href="#">الهندسة الميكانيكية</a> <a href="#">الهندسة
+          المدنية</a> <a href="#">التسيير والاقتصاد</a> <a href="#">التكنولوجيا</a>
+        <a href="#">الإعلام الآلي</a> </div>
+    </div>
+  </body>
+</html>
