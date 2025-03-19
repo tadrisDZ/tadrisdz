@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="ar" class="light-style layout-menu-fixed layout-compact" dir="rtl"
+      data-theme="theme-default" data-assets-path="https://tadrisdz.com/assets/"
+      data-template="horizontal-menu-template-no-customizer-starter" data-style="light">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <title>طور التعليم الثانوي - اللغة العربية - TadrisDZ</title>
+    <meta name="description" content="TadrisDZ هو الموقع الأول في الجزائر الذي يقدم محتوى تعليمي شامل لجميع المستويات الدراسية وفق المنهاج الجزائري. نوفر لك ملخصات مميزة، تمارين، ونماذج الفروض والاختبارات لجميع المواد من أجل التحضير الجيد والنجاح في مسيرتك الدراسية." />
+    <link rel="icon" type="image/x-icon" href="https://tadrisdz.com/assets/img/icons/tadrisdz_logo.ico" />
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://tadrisdz.com/assets/vendor/css/rtl/core.css" />
+    <link rel="stylesheet" href="https://tadrisdz.com/assets/vendor/css/rtl/theme-modern.css" />
+    
+    <style>
+        body {
+            font-family: 'CoconNextArabic-Regular', sans-serif !important;
+            font-size: large;
+            background: linear-gradient(135deg, #eef2f7, #d9e2ec);
+            color: #212529;
+            perspective: 1000px;
+            text-align: center;
+        }
+        .navbar {
+            background: linear-gradient(135deg, #0077b6, #00a896);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .header-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .header-buttons input {
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            width: 250px;
+        }
+        .header-buttons .btn {
+            background: #0077b6;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+        .header-buttons .btn:hover {
+            background: #005f99;
+        }
+        .social-icons img {
+            width: 30px;
+            margin-left: 10px;
+        }
+        /* إطار رقيق وطويل يحمل الأطوار */
+        .horizontal-sidebar {
+            background: white;
+            padding: 15px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            width: 90%;
+            max-width: 1200px;
+            border-radius: 10px;
+            z-index: 1000; /* للتأكد من بقاء الإطار فوق العناصر الأخرى */
+        }
+        /* تنسيق الأزرار في الوسط */
+        .horizontal-sidebar ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        /* تنسيق الأزرار مع سهم نازل */
+        .horizontal-sidebar ul li {
+            position: relative;
+        }
+        /* أزرار ثلاثية الأبعاد */
+        .horizontal-sidebar ul li > a {
+            display: flex;
+            align-items: center;
+            padding: 15px 25px;
+            color: white;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+        .horizontal-sidebar ul li > a:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4);
+        }
+        /* ألوان الأطوار */
+        .horizontal-sidebar ul li > a.primary {
+            background: linear-gradient(135deg, #0077b6, #00a896); /* لون التعليم الابتدائي */
+        }
+        .horizontal-sidebar ul li > a.middle {
+            background: linear-gradient(135deg, #28a745, #90ee90); /* لون التعليم المتوسط */
+        }
+        .horizontal-sidebar ul li > a.secondary {
+            background: linear-gradient(135deg, #fd7e14, #ffcccb); /* لون التعليم الثانوي */
+        }
+        /* قوائم المواد المنسدلة */
+        .horizontal-sidebar ul li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            min-width: 200px;
+            z-index: 1000;
+        }
+        .horizontal-sidebar ul li:hover ul {
+            display: block;
+        }
+        .horizontal-sidebar ul li ul li {
+            margin: 5px 0;
+        }
+        .horizontal-sidebar ul li ul li a {
+            padding: 8px 12px;
+            background: #f9f9f9;
+            border-radius: 5px;
+            color: #0077b6;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        .horizontal-sidebar ul li ul li a:hover {
+            background: #e0f2f1;
+        }
+        /* زر المزيد */
+        .more-button {
+            display: block;
+            padding: 8px 12px;
+            background: #f9f9f9;
+            border-radius: 5px;
+            color: #0077b6;
+            text-decoration: none;
+            transition: background 0.3s;
+            text-align: center;
+            margin-top: 10px;
+        }
+        .more-button:hover {
+            background: #e0f2f1;
+        }
+        /* أزرار مستويات التعليم الابتدائي مربعة */
+        .levels-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .level-button {
+            padding: 15px 25px;
+            background: linear-gradient(135deg, #996402, #eec94f); /* نفس لون التعليم الابتدائي */
+            color: white;
+            border: none;
+            border-radius: 0; /* مربعة بدون حواف مستديرة */
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+        .level-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4);
+        }
+        /* وميض اسم المستوى في إطار المحتوى */
+        @keyframes blink {
+            0% { background: #f1f1f1; }
+            50% { background: #e0f2f1; }
+            100% { background: #f1f1f1; }
+        }
+        .content-box h2 {
+            color: #4a90e2;
+            animation: blink 1s infinite; /* وميض */
+        }
+        /* أنماط المحتوى الديناميكي */
+        .content-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            margin: 20px auto;
+            width: 80%;
+            max-width: 800px;
+            display: none; /* يتم إظهاره عبر JavaScript */
+        }
+        .content-box.active {
+            display: block;
+        }
+        .content-box a {
+            display: block;
+            padding: 10px;
+            margin: 10px 0;
+            background: #4a90e2;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .content-box a:hover {
+            background: #357abd;
+        }
+         /* إضافة تأثير وميض بلون طور المتوسط */
+         @keyframes blink-middle {
+            0% { background: #864001; }
+            50% { background: #9c4905; }
+            100% { background: #e99a3a; }
+        }
+
+        /* تكبير حجم الخط وإضافة الوميض */
+        .horizontal-sidebar h3 {
+            font-size: 18px; /* تكبير الخط */
+            animation: blink-middle 1.5s infinite; /* تأثير وميض */
+            padding: 10px;
+            border-radius: 8px;
+            color: white; /* لون النص أبيض */
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="layout-navbar navbar navbar-expand-xl align-items-center bg-navbar-theme">
+        <div class="container-xxl">
+            <a href="https://tadrisdz.com/" class="app-brand-link gap-2">
+                <img src="https://tadrisdz.com/assets/img/tadrisdz_logo.png" alt="شعار TadrisDZ" width="50" height="50" />
+                <span class="app-brand-text demo menu-text fw-semibold ms-1">TadrisDZ</span>
+            </a>
+        </div>
+        <div class="header-buttons">
+            <input type="text" placeholder="ابحث عن مادة..." />
+            <a href="#" class="btn">تسجيل الدخول</a>
+            <a href="#" class="btn" style="background: #00a896;">إنشاء حساب</a>
+            <div class="social-icons">
+                <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="تويتر" /></a>
+                <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="فيسبوك" /></a>
+                <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733590.png" alt="إنستغرام" /></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- الإطار الأفقي -->
+    <div class="horizontal-sidebar">
+        <h3>التعليم الثانوي - اللغة العربية</h3>
+        <ul>
+            <li>
+                <a href="#" class="primary">التعليم الابتدائي</a>
+                <ul>
+                    <li><a href="#">اللغة العربية</a></li>
+                    <li><a href="#">الرياضيات</a></li>
+                    <li><a href="#">التربية الإسلامية</a></li>
+                    <li><a href="#">اللغة الفرنسية</a></li>
+                    <li><a href="#" class="more-button">المزيد &gt;&gt;</a></li>
+                    <!-- المواد المخفية -->
+                    <li style="display: none;"><a href="#">التربية العلمية</a></li>
+                    <li style="display: none;"><a href="#">التربية المدنية</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="middle">التعليم المتوسط</a>
+                <ul>
+                    <li><a href="#">الرياضيات</a></li>
+                    <li><a href="#">العلوم الطبيعية</a></li>
+                    <li><a href="#">اللغة العربية</a></li>
+                    <li><a href="#">اللغة الفرنسية</a></li>
+                    <li><a href="#" class="more-button">المزيد &gt;&gt;</a></li>
+                    <!-- المواد المخفية -->
+                    <li style="display: none;"><a href="#">التاريخ والجغرافيا</a></li>
+                    <li style="display: none;"><a href="#">التربية الإسلامية</a></li>
+                    <li style="display: none;"><a href="#">التربية المدنية</a></li>
+                    <li style="display: none;"><a href="#">التكنولوجيا</a></li>
+                    <li style="display: none;"><a href="#">الإعلام الآلي</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="secondary">التعليم الثانوي</a>
+                <ul>
+                    <li><a href="#">الرياضيات</a></li>
+                    <li><a href="#">الفيزياء</a></li>
+                    <li><a href="#">العلوم الطبيعية</a></li>
+                    <li><a href="#">الفلسفة</a></li>
+                    <li><a href="#" class="more-button">المزيد &gt;&gt;</a></li>
+                    <!-- المواد المخفية -->
+                    <li style="display: none;"><a href="#">التاريخ والجغرافيا</a></li>
+                    <li style="display: none;"><a href="#">اللغة العربية</a></li>
+                    <li style="display: none;"><a href="#">اللغة الفرنسية</a></li>
+                    <li style="display: none;"><a href="#">اللغة الإنجليزية</a></li>
+                    <li style="display: none;"><a href="#">الهندسة الكهربائية</a></li>
+                    <li style="display: none;"><a href="#">الهندسة الميكانيكية</a></li>
+                    <li style="display: none;"><a href="#">الهندسة المدنية</a></li>
+                    <li style="display: none;"><a href="#">التسيير والاقتصاد</a></li>
+                    <li style="display: none;"><a href="#">التكنولوجيا</a></li>
+                    <li style="display: none;"><a href="#">الإعلام الآلي</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- مستويات التعليم الابتدائي -->
+    <div class="levels-container">
+        <button class="level-button" data-level="secondary-1">الأولى ثانوي</button>
+        <button class="level-button" data-level="secondary-2">الثانية ثانوي</button>
+        <button class="level-button" data-level="secondary-3">الثالثة ثانوي</button>
+    </div>
+
+    <!-- المحتوى الديناميكي -->
+    <div id="content-container">
+        <div class="content-box active">
+            <h2>الأولى ثانوي - اللغة العربية</h2>
+            <a href="#">ملخصات الدروس</a>
+            <a href="#">تمارين تفاعلية</a>
+            <a href="#">نماذج الفروض</a>
+            <a href="#">اختبارات تقييمية</a>
+        </div>
+    </div>
+
+    <script>
+        // إظهار المزيد من المواد عند النقر على زر "المزيد"
+        const moreButtons = document.querySelectorAll('.more-button');
+        moreButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const ul = button.parentElement.parentElement;
+                const hiddenItems = ul.querySelectorAll('li:nth-child(n+5)'); // العناصر المخفية
+                hiddenItems.forEach(item => {
+                    item.style.display = 'block';
+                });
+                button.style.display = 'none'; // إخفاء زر "المزيد" بعد النقر
+            });
+        });
+
+        // عرض المحتوى عند النقر على مستوى معين
+        const levelButtons = document.querySelectorAll('.level-button');
+        const contentContainer = document.getElementById('content-container');
+
+        levelButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const level = button.textContent;
+                contentContainer.innerHTML = `
+                    <div class="content-box active">
+                        <h2>${level}</h2>
+                        <a href="#">ملخصات الدروس</a>
+                        <a href="#">تمارين تفاعلية</a>
+                        <a href="#">نماذج الفروض</a>
+                        <a href="#">اختبارات تقييمية</a>
+                    </div>
+                `;
+            });
+        });
+    </script>
+</body>
+</html>
